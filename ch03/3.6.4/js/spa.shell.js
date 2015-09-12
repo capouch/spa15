@@ -155,16 +155,20 @@ spa.shell = (function () {
 
     // Begin merge changes into anchor map
     KEYVAL:
+    // Process each property in arg_map
     for ( key_name in arg_map ) {
+      // Do not deal with properties of parents up the prototype
       if ( arg_map.hasOwnProperty( key_name ) ) {
 
         // skip dependent keys during iteration
         if ( key_name.indexOf( '_' ) === 0 ) { continue KEYVAL; }
 
         // update independent key value
+        // i.e. Replace the current value with the one passed in as a parameter
         anchor_map_revise[key_name] = arg_map[key_name];
 
         // update matching dependent key
+        // This handles stuff BEYOND the "key=value" part of the anchor
         key_name_dep = '_' + key_name;
         if ( arg_map[key_name_dep] ) {
           anchor_map_revise[key_name_dep] = arg_map[key_name_dep];
@@ -178,11 +182,12 @@ spa.shell = (function () {
     // End merge changes into anchor map
 
     // Begin attempt to update URI; revert if not successful
+    // Note that this is a jQuery service call
     try {
       $.uriAnchor.setAnchor( anchor_map_revise );
     }
     catch ( error ) {
-      // replace URI with existing state
+      // replace URI with existing state if the revised version fails
       $.uriAnchor.setAnchor( stateMap.anchor_map,null,true );
       bool_return = false;
     }
@@ -213,14 +218,15 @@ spa.shell = (function () {
       _s_chat_previous, _s_chat_proposed,
       s_chat_proposed;
 
+
     // attempt to parse anchor
     try { anchor_map_proposed = $.uriAnchor.makeAnchorMap(); }
     catch ( error ) {
       $.uriAnchor.setAnchor( anchor_map_previous, null, true );
+
       return false;
     }
     stateMap.anchor_map = anchor_map_proposed;
-
     // convenience vars
     _s_chat_previous = anchor_map_previous._s_chat;
     _s_chat_proposed = anchor_map_proposed._s_chat;
@@ -244,7 +250,6 @@ spa.shell = (function () {
       }
     }
     // End adjust chat component if changed
-
     return false;
   };
   // End Event handler /onHashchange/
