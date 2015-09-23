@@ -16,7 +16,7 @@ spa.shell = (function () {
   var
     configMap = {
       anchor_schema_map : {
-        chat  : { opened : true, closed : true }
+        chat  : { opened : true, closed : true, hidden : true }
       },
       resize_interval : 200,
       main_html : String()
@@ -168,6 +168,9 @@ spa.shell = (function () {
         case 'closed' :
           is_ok = spa.chat.setSliderPosition( 'closed' );
         break;
+         case 'hidden' :
+          is_ok = spa.chat.setSliderPosition( 'hidden' );
+        break;
         default :
           spa.chat.setSliderPosition( 'closed' );
           delete anchor_map_proposed.chat;
@@ -252,6 +255,7 @@ spa.shell = (function () {
     setJqueryMap();
 
     // configure uriAnchor to use our schema
+    // console.log(configMap.anchor_schema_map);
     $.uriAnchor.configModule({
       schema_map : configMap.anchor_schema_map
     });
