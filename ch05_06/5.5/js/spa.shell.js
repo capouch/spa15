@@ -47,7 +47,7 @@ spa.shell = (function () {
     onTapAcct,        onLogin,        onLogout,
     setChatAnchor,    initModule;
   //----------------- END MODULE SCOPE VARIABLES ---------------
-
+  // Gratuitous comment to test git
   //------------------- BEGIN UTILITY METHODS ------------------
   // Returns copy of stored anchor map; minimizes overhead
   copyAnchorMap = function () {
@@ -265,14 +265,14 @@ spa.shell = (function () {
   //   Directs the Shell to offer its capability to the user
   // Arguments :
   //   * $container (example: $('#app_div_id')).
-  //     A jQuery collection that should represent 
+  //     A jQuery collection that should represent
   //     a single DOM container
   // Action    :
   //   Populates $container with the shell of the UI
   //   and then configures and initializes feature modules.
   //   The Shell is also responsible for browser-wide issues
   //   such as URI anchor and cookie management
-  // Returns   : none 
+  // Returns   : none
   // Throws    : none
   //
   initModule = function ( $container ) {
