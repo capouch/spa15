@@ -1,6 +1,7 @@
 /*
  * spa.shell.js
  * Shell module for SPA
+ * Modified by Brian Capouch in various ways
 */
 
 /*jslint         browser : true, continue : true,
