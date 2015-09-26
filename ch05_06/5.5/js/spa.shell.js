@@ -47,7 +47,7 @@ spa.shell = (function () {
     onTapAcct,        onLogin,        onLogout,
     setChatAnchor,    initModule;
   //----------------- END MODULE SCOPE VARIABLES ---------------
-  // Gratuitous comment to test git
+
   //------------------- BEGIN UTILITY METHODS ------------------
   // Returns copy of stored anchor map; minimizes overhead
   copyAnchorMap = function () {
