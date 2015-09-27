@@ -68,7 +68,6 @@ spa.shell = (function () {
     };
   };
   // End DOM method /setJqueryMap/
-  // Add further gratuitous comment
 
   // Begin DOM method /changeAnchorPart/
   // Purpose    : Changes part of the URI anchor component
