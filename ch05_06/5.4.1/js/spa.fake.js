@@ -16,7 +16,6 @@ spa.fake = (function () {
   var getPeopleList;
 
   getPeopleList = function () {
-    // Note that there is nobody with id_00
     return [
       { name : 'Betty', _id : 'id_01',
         css_map : { top: 20, left: 20,
