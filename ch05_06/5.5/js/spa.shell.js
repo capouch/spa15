@@ -25,7 +25,7 @@ spa.shell = (function () {
         + '<div class="spa-shell-head">'
           + '<div class="spa-shell-head-logo">'
             + '<h1>SPA</h1>'
-            + '<p>javascript end to end</p>'
+            + '<p>SJC javascript end to end</p>'
           + '</div>'
           + '<div class="spa-shell-head-acct"></div>'
         + '</div>'
