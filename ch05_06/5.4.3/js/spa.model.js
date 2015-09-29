@@ -10,7 +10,6 @@
   white  : true
 */
 
-// This is some dumb comment //
 
 /*global TAFFY, $, spa */
 
