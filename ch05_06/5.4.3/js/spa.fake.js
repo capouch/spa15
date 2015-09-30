@@ -2,7 +2,7 @@
  * spa.fake.js
  * Fake module
 */
-// This is a test comment to make sure Atom and git are copasetic
+
 /*jslint         browser : true, continue : true,
   devel  : true, indent  : 2,    maxerr   : 50,
   newcap : true, nomen   : true, plusplus : true,
