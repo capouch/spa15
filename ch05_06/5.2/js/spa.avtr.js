@@ -11,5 +11,5 @@
 */
 /*global $, spa */
 
-// Teacher really wants students to know what this does!!!!
+// My dog had fleas, but he died.  
 spa.avtr = (function () { return {}; }());
