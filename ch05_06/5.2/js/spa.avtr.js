@@ -11,4 +11,5 @@
 */
 /*global $, spa */
 
+// Teacher really wants students to know what this does!!!!
 spa.avtr = (function () { return {}; }());
