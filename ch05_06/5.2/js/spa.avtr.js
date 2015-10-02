@@ -11,5 +11,5 @@
 */
 /*global $, spa */
 
-// My dog had fleas, but he died.  
+// It takes a mighty big dog to weigh a ton 
 spa.avtr = (function () { return {}; }());
