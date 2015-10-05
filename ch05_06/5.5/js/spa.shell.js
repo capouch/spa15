@@ -51,6 +51,7 @@ spa.shell = (function () {
 
   //------------------- BEGIN UTILITY METHODS ------------------
   // Returns copy of stored anchor map; minimizes overhead
+  // "Minimize overhead" means that jQuery does the heavy lifting of a "deep copy"
   copyAnchorMap = function () {
     return $.extend( true, {}, stateMap.anchor_map );
   };
