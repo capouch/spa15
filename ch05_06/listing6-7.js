@@ -23,6 +23,11 @@ spa.model.people.login( 'Fanny' );
 // >> *Listchange: [Array[5]]
 // try to send a message without setting chatee
 spa.model.chat.send_msg( 'Hi Pebbles!' );
+// wait about 8 seconds for a test message to come in
+
+/* >> Chatee change: Object {old_chatee: null, new_chatee: Object}
+>> Chat message: Object {dest_id: "id_5", dest_name: "Fanny",
+>> sender_id: "id_04", msg_text: "Hi there Fanny! Wilma here."} /*
 
 // receipt of a message sets the chatee
 spa.model.chat.send_msg( 'What is up, tricks?' );
