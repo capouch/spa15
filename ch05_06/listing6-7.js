@@ -27,7 +27,7 @@ spa.model.chat.send_msg( 'Hi Pebbles!' );
 
 /* >> Chatee change: Object {old_chatee: null, new_chatee: Object}
 >> Chat message: Object {dest_id: "id_5", dest_name: "Fanny",
->> sender_id: "id_04", msg_text: "Hi there Fanny! Wilma here."} /*
+>> sender_id: "id_04", msg_text: "Hi there Fanny! Wilma here."} */
 
 // receipt of a message sets the chatee
 spa.model.chat.send_msg( 'What is up, tricks?' );
