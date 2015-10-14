@@ -1,0 +1,49 @@
+--- app.js-orig	2014-10-16 15:13:30.913929015 -0400
++++ app.js	2014-10-16 15:23:03.109920789 -0400
+@@ -16,30 +16,34 @@
+   http    = require( 'http'     ),
+   express = require( 'express'  ),
+   routes  = require( './routes' ),
++  morgan = require( 'morgan' ),
++  bodyParser = require( 'body-parser' ),
++  methodOverride = require( 'method-override' ),
++  errorHandler = require( 'errorhandler' ),
+ 
+   app     = express(),
+   server  = http.createServer( app );
+ // ------------- END MODULE SCOPE VARIABLES ---------------
+ 
+ // ------------- BEGIN SERVER CONFIGURATION ---------------
+-app.configure( function () {
+-  app.use( express.bodyParser() );
+-  app.use( express.methodOverride() );
++  app.use( bodyParser.urlencoded() );
++  app.use( methodOverride() );
+   app.use( express.static( __dirname + '/public' ) );
+-  app.use( app.router );
+-});
++  app.use( morgan( 'common' ) );
++  app.use( errorHandler() );
+ 
+-app.configure( 'development', function () {
+-  app.use( express.logger() );
+-  app.use( express.errorHandler({
++var env = process.env.NODE_ENV || 'development';
++if ('development' == env) {
++  app.use( errorHandler({
+     dumpExceptions : true,
+     showStack      : true
+   }) );
+-});
++};
+ 
+-app.configure( 'production', function () {
+-  app.use( express.errorHandler() );
+-});
++var env = process.env.NODE_ENV || 'production';
++if ('development' == env) {
++  app.use( errorHandler() );
++};
+ 
+ routes.configRoutes( app, server );
+ // -------------- END SERVER CONFIGURATION ----------------

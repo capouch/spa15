@@ -1,0 +1,22 @@
+--- routes.js-orig	2014-10-16 17:36:39.062805556 -0400
++++ routes.js	2014-10-16 17:26:31.673814288 -0400
+@@ -16,12 +16,18 @@
+ // ------------- END MODULE SCOPE VARIABLES ---------------
+ 
+ // ---------------- BEGIN PUBLIC METHODS ------------------
+-configRoutes = function ( app, server ) {
++configRoutes = function ( app, server,basic ) {
+   app.get( '/', function ( request, response ) {
+         response.redirect( '/spa.html' );
+   });
+ 
+   app.all( '/:obj_type/*?', function ( request, response, next ) {
++   basic.apply(request, response, function(username) {
++     next();
++    });
++  }); 
++
++  app.all( '/:obj_type/*?', function ( request, response, next ) {
+     response.contentType( 'json' );
+     next();
+   });
