@@ -15,7 +15,7 @@ var http, server;
 http   = require( 'http' );
 server = http.createServer( function ( request, response ) {
   response.writeHead( 200, { 'Content-Type': 'text/plain' } );
-  response.end( 'Meet me at Premier Bank behind S door at 8:00 am' );
+  response.end( 'It takes a really big dog to weigh a ton!!' );
 }).listen( 3000 );
 
 console.log( 'Listening on port %d', server.address().port );

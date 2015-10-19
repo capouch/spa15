@@ -113,6 +113,7 @@ spa.fake = (function () {
 
     emit_mock_msg = function () {
       setTimeout( function () {
+        console.log("in emit_mock_msg");
         var user = spa.model.people.get_user();
         if ( callback_map.updatechat ) {
           callback_map.updatechat([{
@@ -129,6 +130,7 @@ spa.fake = (function () {
     // Try once per second to use listchange callback.
     // Stop trying after first success.
     send_listchange = function () {
+      console.log('Running send_listchange');
       listchange_idto = setTimeout( function () {
         if ( callback_map.listchange ) {
           callback_map.listchange([ peopleList ]);
