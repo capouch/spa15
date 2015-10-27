@@ -72,10 +72,9 @@ signOut = function ( io, user_id ) {
 chatObj = {
   connect : function ( server ) {
     var io = socket.listen( server );
-
     // Begin io setup
     io
-      .set( 'blacklist' , [] )
+//      .set( 'blacklist' , [] )
       .of( '/chat' )
       .on( 'connection', function ( socket ) {
 

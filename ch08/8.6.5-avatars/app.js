@@ -1,5 +1,5 @@
 /*
- * app.js - Express server with routing
+ * app.js - Express server with advanced routing
 */
 
 /*jslint         node    : true, continue : true,
@@ -13,35 +13,29 @@
 // ------------ BEGIN MODULE SCOPE VARIABLES --------------
 'use strict';
 var
-  http    = require( 'http'         ),
-  express = require( 'express'      ),
-  routes  = require( './lib/routes' ),
+  http    = require( 'http'    ),
+  express = require( 'express' ),
+  morgan = require( 'morgan' ),
+  bodyParser = require( 'body-parser' ),
+  methodOverride = require( 'method-override' ),
+  errorHandler = require( 'errorhandler' ),
+  routes = require('./lib/routes'),
 
   app     = express(),
   server  = http.createServer( app );
 // ------------- END MODULE SCOPE VARIABLES ---------------
 
 // ------------- BEGIN SERVER CONFIGURATION ---------------
-app.configure( function () {
-  app.use( express.bodyParser() );
-  app.use( express.methodOverride() );
+  app.use( bodyParser.urlencoded() );
+  app.use( methodOverride() );
   app.use( express.static( __dirname + '/public' ) );
-  app.use( app.router );
-});
 
-app.configure( 'development', function () {
-  app.use( express.logger() );
-  app.use( express.errorHandler({
-    dumpExceptions : true,
-    showStack      : true
-  }) );
-});
+  app.use( morgan( 'common' ) );
+  app.use( errorHandler() );
 
-app.configure( 'production', function () {
-  app.use( express.errorHandler() );
-});
+  routes.configRoutes( app, server );
 
-routes.configRoutes( app, server );
+// all configurations below are for routes
 // -------------- END SERVER CONFIGURATION ----------------
 
 // ----------------- BEGIN START SERVER -------------------
